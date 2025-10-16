@@ -2,6 +2,11 @@
 
 from src.utils.train import train
 
-if __name__ == "__main__":
+def main():
+    ''' Main function to start training '''
+    
     csv_path = "data/fer2013.csv"
     train(csv_path)
+
+if __name__ == "__main__":
+    main()
