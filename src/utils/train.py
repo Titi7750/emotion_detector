@@ -2,10 +2,10 @@ from src.utils.preprocess import load_and_preprocess
 from src.models.cnn import first_cnn_model
 import matplotlib.pyplot as plt
 
-def train(csv_path, model_path="output/emotion_model.h5"):
+def train(param_csv_path: str, param_model_path: str = "output/emotion_model.h5"):
     ''' Train the CNN model on the dataset from the CSV file. '''
     
-    X_train, y_train, X_test, y_test, labels = load_and_preprocess(csv_path)
+    X_train, y_train, X_test, y_test, labels = load_and_preprocess(param_csv_path)
 
     model = first_cnn_model()
     history = model.fit(
@@ -19,8 +19,8 @@ def train(csv_path, model_path="output/emotion_model.h5"):
         )
     )
 
-    model.save(model_path)
-    print(f"Modèle sauvegardé dans {model_path}")
+    model.save(param_model_path)
+    print(f"Modèle sauvegardé dans {param_model_path}")
 
     plt.plot(history.history['accuracy'], label='train')
     plt.plot(history.history['val_accuracy'], label='test')

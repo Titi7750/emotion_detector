@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-def load_and_preprocess(csv_path):
+def load_and_preprocess(param_csv_path: str):
     ''' This function loads and preprocesses the dataset from a CSV file. '''
 
     emotion_labels = {
@@ -18,7 +18,7 @@ def load_and_preprocess(csv_path):
         return np.array([int(pixel) for pixel in pixels.split()]).reshape(48, 48)
 
     # Read the CSV file into a DataFrame
-    dataframe = pd.read_csv(csv_path)
+    dataframe = pd.read_csv(param_csv_path)
 
     # Apply pixel processing
     dataframe['pixels'] = dataframe['pixels'].apply(process_pixels)
